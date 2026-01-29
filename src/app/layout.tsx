@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 import { ThemeProvider } from "@/components/theme-provider"
+import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/icons/logo";
 import "./globals.css";
 
 
@@ -22,7 +25,30 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           enableSystem
           disableTransitionOnChange
         >
+          <nav className="fixed w-full z-50 bg-background border-b">
+            <div className="container mx-auto h-16 flex justify-between">
+              <div className="flex items-center gap-2">
+                <Logo className="w-8 h-8" />
+                <span className="font-bold tracking-tight text-xl uppercase">Octogone</span>
+              </div>
+              <div className="md:flex items-center gap-8 *:text-foreground">
+                <Button variant="link"><Link href="#about">À propos</Link></Button>
+                <Button variant="link"><Link href="#services">Services</Link></Button>
+                <Button variant="link"><Link href="#projects">Projets</Link></Button>
+                <Button render={<Link href="#contact" />}>Contact</Button>
+              </div>
+            </div>
+          </nav >
+
           {children}
+
+          <footer className="py-6 border-t">
+            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-4">
+              <p className="text-xs">
+                © 2025 Octogone 3D Prints™. Tous droits réservés.
+              </p>
+            </div>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
