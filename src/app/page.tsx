@@ -1,20 +1,9 @@
 "use client";
 
-import {
-  Mail,
-  Box,
-  Layers,
-  Settings,
-  PenTool,
-  Cpu,
-  Palette,
-  Rocket,
-  Zap,
-} from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import heroPic from "@/assets/hero.png";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,6 +21,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import {
   Item,
@@ -42,80 +41,10 @@ import {
 } from "@/components/ui/item";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import projects from "@/data/projects.json";
+import services from "@/data/services";
 
 const App = () => {
-  const services = {
-    conception: [
-      {
-        title: "Idéation",
-        icon: <Rocket className="w-5 h-5" />,
-        desc: "De l'idée au concept concret.",
-      },
-      {
-        title: "Modélisation technique",
-        icon: <PenTool className="w-5 h-5" />,
-        desc: "CAO précise pour fabrication.",
-      },
-      {
-        title: "Sélection matériaux",
-        icon: <Layers className="w-5 h-5" />,
-        desc: "Optimisation selon l'usage.",
-      },
-    ],
-    impression: [
-      {
-        title: "Impression à la demande",
-        icon: <Box className="w-5 h-5" />,
-        desc: "Vos fichiers STL en réalité.",
-      },
-      {
-        title: "Séries & Catalogues",
-        icon: <Layers className="w-5 h-5" />,
-        desc: "Production de petites séries.",
-      },
-      {
-        title: "Prototypage",
-        icon: <Settings className="w-5 h-5" />,
-        desc: "Validation rapide de design.",
-      },
-      {
-        title: "Post-traitement",
-        icon: <Palette className="w-5 h-5" />,
-        desc: "Finition, ponçage et peinture.",
-      },
-    ],
-    conseil: [
-      {
-        title: "Formations",
-        icon: <Cpu className="w-5 h-5" />,
-        desc: "Apprenez à maîtriser vos outils.",
-      },
-      {
-        title: "Design for AM",
-        icon: <Zap className="w-5 h-5" />,
-        desc: "Optimisation spécifique 3D.",
-      },
-    ],
-  };
-
-  const projects = [
-    {
-      title: "Lanterne de Mariage",
-      tags: ["Conception", "Impression", "Finition"],
-      img: "https://images.unsplash.com/photo-1518131343132-37887556f081?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-      title: "Figurine Overwatch",
-      tags: ["Résine High-Res", "Catalogue", "Qualité"],
-      img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-      title: "Support iPad Pro",
-      tags: ["Idéation", "Modélisation", "Prototypage"],
-      img: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800&auto=format&fit=crop",
-    },
-  ];
-
   return (
     <>
       <section
@@ -132,10 +61,6 @@ const App = () => {
               infinies
             </span>
           </h1>
-          <p className="text-muted-foreground text-lg mb-8 max-w-lg">
-            Octogone 3D Prints™ transforme vos concepts en objets tangibles avec
-            une précision industrielle et une approche artisanale.
-          </p>
           <div className="flex flex-wrap gap-4">
             <Button render={<Link href="#contact" />} nativeButton={false}>
               Lancer un projet
@@ -145,40 +70,37 @@ const App = () => {
               render={<Link href="#services" />}
               nativeButton={false}
             >
-              Découvrir
+              Nos services
             </Button>
           </div>
         </div>
-        <Image
-          src={heroPic}
-          alt="3D Printing Preview"
-          className="brightness-80"
-        />
+        <Image src={require("@/assets/hero.png")} alt="3D Printing Preview" />
       </section>
 
       <section id="about">
         <Card className="container mx-auto">
           <CardContent>
-            <h2 className="font-bold uppercase tracking-widest mb-4">
-              Notre Vision
-            </h2>
             <p className="text-2xl font-medium leading-tight">
-              &quot;La qualité et le contrôle sont la pierre angulaire de notre
-              pratique pour garantir des résultats à la hauteur de vos
-              attentes.&quot;
+              Bienvenue ! Octogone 3D Prints™ est un service d'impression 3D qui
+              offre un support complet et une expérience personnalisée. Notre
+              mission est de promouvoir la créativité et l'expertise technique à
+              chaque étape de la chaîne de valeur de l'impression afin de vous
+              offrir le meilleur parcours dans le monde de l'impression 3D. La
+              qualité et le contrôle sont la pierre angulaire de notre pratique
+              afin de garantir des résultats à la hauteur de vos attentes.
             </p>
           </CardContent>
           <CardFooter className="flex justify-around">
             <Item variant="muted" className="w-fit">
               <ItemContent>
                 <ItemTitle>23+</ItemTitle>
-                <ItemDescription>Projets Livrés</ItemDescription>
+                <ItemDescription>Projets réalisés</ItemDescription>
               </ItemContent>
             </Item>
             <Item variant="muted" className="w-fit">
               <ItemContent>
                 <ItemTitle>5+</ItemTitle>
-                <ItemDescription>Années d&apos;Expertise</ItemDescription>
+                <ItemDescription>Années d'expérience</ItemDescription>
               </ItemContent>
             </Item>
           </CardFooter>
@@ -203,8 +125,8 @@ const App = () => {
                 {key}
               </h3>
               <div className="space-y-3">
-                {items.map((service, idx) => (
-                  <Item variant="outline" key={idx}>
+                {items.map((service) => (
+                  <Item variant="outline" key={service.title}>
                     <ItemMedia>{service.icon}</ItemMedia>
                     <ItemContent>
                       <ItemTitle>{service.title}</ItemTitle>
@@ -232,25 +154,59 @@ const App = () => {
 
         <Carousel>
           <CarouselContent>
-            {projects.map((project, idx) => (
-              <CarouselItem key={idx} className="basis-1/3">
-                <Card className="relative mx-auto w-full max-w-sm pt-0">
-                  <img
-                    src={project.img}
-                    alt={project.title}
-                    className="aspect-video object-cover brightness-60"
-                  />
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+            {projects.map((project) => (
+              <CarouselItem key={project.slug} className="basis-1/3">
+                <Dialog>
+                  <form>
+                    <DialogTrigger
+                      render={
+                        <Card className="relative mx-auto w-full max-w-sm pt-0">
+                          <Image
+                            src={require(
+                              `@/assets/projects/${project.slug}/${project.pictures[0]}`,
+                            )}
+                            alt={project.title}
+                            className="aspect-video object-cover"
+                          />
+                          <CardHeader>
+                            <CardTitle>{project.title}</CardTitle>
+                          </CardHeader>
+                        </Card>
+                      }
+                    />
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>{project.title}</DialogTitle>
+                        <DialogDescription>{project.description}</DialogDescription>
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </DialogHeader>
+                      <Carousel>
+                        <CarouselContent>
+                          {project.pictures.map((string) => (
+                            <CarouselItem key={string}>
+                            <Image
+                              src={require(
+                                `@/assets/projects/${project.slug}/${string}`,
+                              )}
+                              alt={project.title}
+                              className="aspect-video object-cover"
+                            />
+                            </CarouselItem>
+                          ))} 
+                        </CarouselContent> 
+                        <CarouselPrevious />
+                        <CarouselNext />
+                      </Carousel>
+                      <DialogFooter>
+                        <DialogClose render={<Button variant="outline">Close</Button>} />
+                      </DialogFooter>
+                    </DialogContent>
+                  </form>
+                </Dialog>
               </CarouselItem>
             ))}
           </CarouselContent>
