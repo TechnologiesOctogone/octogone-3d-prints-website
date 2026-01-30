@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/icons/logo";
 import "./globals.css";
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import { CircleAlertIcon } from "lucide-react";
 
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
@@ -31,12 +33,23 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
                 <Logo className="w-8 h-8" />
                 <span className="font-bold tracking-tight text-xl uppercase">Octogone</span>
               </div>
-              <div className="md:flex items-center gap-8 *:text-foreground">
-                <Button variant="link"><Link href="#about">À propos</Link></Button>
-                <Button variant="link"><Link href="#services">Services</Link></Button>
-                <Button variant="link"><Link href="#projects">Projets</Link></Button>
-                <Button render={<Link href="#contact" />}>Contact</Button>
-              </div>
+
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="#about">À propos</Link>} />
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="#services">Services</Link>} />
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="#projects">Projets</Link>} />
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()} render={<Link href="#contact">Contact</Link>} />
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
             </div>
           </nav >
 
