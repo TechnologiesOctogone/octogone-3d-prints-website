@@ -5,13 +5,7 @@ import Link from "next/link";
 import { LogoFull } from "@/components/icons/logo-full";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { Navigation } from "@/components/navigation";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -35,36 +29,11 @@ export default function RootLayout({
         >
           <nav className="fixed w-full z-50 bg-background border-b">
             <div className="container mx-auto h-16 flex justify-between">
-              <LogoFull className="h-10 my-auto" />
+              <Link href="/" className="my-auto">
+                <LogoFull className="h-10" />
+              </Link>
 
-              <NavigationMenu>
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      render={<Link href="#about">À propos</Link>}
-                    />
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      render={<Link href="#services">Services</Link>}
-                    />
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      render={<Link href="#projects">Projets</Link>}
-                    />
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                      render={<Link href="#contact">Contact</Link>}
-                    />
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
+              <Navigation />
             </div>
           </nav>
 
