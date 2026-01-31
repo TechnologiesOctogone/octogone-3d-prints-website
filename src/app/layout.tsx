@@ -38,6 +38,7 @@ export default function RootLayout({
             </div>
           </nav>
 
+          <div className="h-16" />
           {children}
 
           <footer className="py-6 border-t">

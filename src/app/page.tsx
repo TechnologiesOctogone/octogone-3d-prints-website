@@ -1,15 +1,14 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Clock, Heart, Mail, Trophy } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -48,22 +47,25 @@ const App = () => {
   return (
     <>
       <section
-        id="home"
-        className="container mx-auto pt-32 pb-20 grid md:grid-cols-2 gap-12 items-center"
+        id="hero"
+        className="container mx-auto py-32 grid lg:grid-cols-2 gap-16 items-center px-6"
       >
         <div>
           <Badge className="mb-6" variant="secondary">
             2 imprimantes en ligne
           </Badge>
-          <h1 className="text-5xl font-bold tracking-tighter mb-6">
-            Ouvrez la porte aux personnalisations{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-foreground to-primary">
-              infinies
-            </span>
+          <h1 className="text-6xl font-bold tracking-tighter mb-6">
+            Ouvrez la porte des personnalisations infinies.
           </h1>
+          <p className="text-muted-foreground text-lg mb-12 max-w-lg">
+            Bienvenue chez Octogone 3D Prints™. Notre mission est de promouvoir
+            la créativité et l'expertise technique à chaque étape de la chaîne
+            de valeur. Qualité et contrôle sont la pierre angulaire de notre
+            pratique.
+          </p>
           <div className="flex flex-wrap gap-4">
             <Button render={<Link href="#contact" />} nativeButton={false}>
-              Lancer un projet
+              Imprimez
             </Button>
             <Button
               variant="secondary"
@@ -74,37 +76,61 @@ const App = () => {
             </Button>
           </div>
         </div>
-        <Image src={require("@/assets/hero.png")} alt="3D Printing Preview" />
+
+        <Card className="relative w-full max-w-md mx-auto py-0">
+          <div
+            className="absolute z-0 inset-0 opacity-50"
+            style={{
+              backgroundImage: "radial-gradient(grey 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+
+          <AspectRatio ratio={1 / 1}>
+            <Image
+              src={require("@/assets/hero.png")}
+              alt="3D Printing Preview"
+              fill
+              className="object-contain"
+            />
+          </AspectRatio>
+        </Card>
       </section>
 
-      <section id="about">
-        <Card className="container mx-auto">
-          <CardContent>
-            <p className="text-2xl font-medium leading-tight">
-              Bienvenue ! Octogone 3D Prints™ est un service d'impression 3D qui
-              offre un support complet et une expérience personnalisée. Notre
-              mission est de promouvoir la créativité et l'expertise technique à
-              chaque étape de la chaîne de valeur de l'impression afin de vous
-              offrir le meilleur parcours dans le monde de l'impression 3D. La
-              qualité et le contrôle sont la pierre angulaire de notre pratique
-              afin de garantir des résultats à la hauteur de vos attentes.
-            </p>
-          </CardContent>
-          <CardFooter className="flex justify-around">
-            <Item variant="muted" className="w-fit">
-              <ItemContent>
-                <ItemTitle>23+</ItemTitle>
-                <ItemDescription>Projets réalisés</ItemDescription>
-              </ItemContent>
-            </Item>
-            <Item variant="muted" className="w-fit">
-              <ItemContent>
-                <ItemTitle>5+</ItemTitle>
-                <ItemDescription>Années d'expérience</ItemDescription>
-              </ItemContent>
-            </Item>
-          </CardFooter>
-        </Card>
+      <section id="stats" className="py-24 bg-secondary/50">
+        <div className="container mx-auto grid grid-cols-3 gap-10">
+          {[
+            {
+              icon: <Trophy className="w-6 h-6 text-primary" />,
+              value: `${Math.floor((Date.now() - new Date("2025-06-01").getTime()) / 604800000)}+`,
+              label: "Projets réalisés",
+            },
+            {
+              icon: <Clock className="w-6 h-6 text-primary" />,
+              value: "5+",
+              label: "Années d'expérience",
+            },
+            {
+              icon: <Heart className="w-6 h-6 text-primary" />,
+              value: "100%",
+              label: "Satisfaction",
+            },
+          ].map(({ icon, value, label }) => (
+            <Card key={label}>
+              <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                <div className="bg-primary/10 p-3 rounded-full mb-4">
+                  {icon}
+                </div>
+                <span className="text-4xl font-bold tracking-tight">
+                  {value}
+                </span>
+                <span className="text-sm font-medium text-muted-foreground mt-1 uppercase tracking-wide">
+                  {label}
+                </span>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       <section id="services" className="py-24 container mx-auto px-6">
@@ -140,84 +166,86 @@ const App = () => {
         </div>
       </section>
 
-      <section id="projects" className="py-24 container mx-auto px-6">
-        <div className="flex items-end justify-between mb-12">
-          <div>
-            <h2 className="text-4xl font-bold tracking-tight mb-4">
-              Portfolio
-            </h2>
-            <p className="text-muted-foreground">
-              Une sélection de nos réalisations récentes.
-            </p>
+      <section id="projects" className="py-24 bg-secondary/50">
+        <div className="container mx-auto px-6">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-bold tracking-tight mb-4">
+                Portfolio
+              </h2>
+              <p className="text-muted-foreground">
+                Une sélection de nos réalisations récentes.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <Carousel>
-          <CarouselContent>
-            {projects.map((project) => (
-              <CarouselItem key={project.slug} className="basis-1/3">
-                <Dialog>
-                  <form>
-                    <DialogTrigger
-                      render={
-                        <Card className="relative mx-auto w-full max-w-sm pt-0">
-                          <Image
-                            src={require(
-                              `@/assets/projects/${project.slug}/${project.pictures[0]}`,
-                            )}
-                            alt={project.title}
-                            className="aspect-video object-cover"
-                          />
-                          <CardHeader>
-                            <CardTitle>{project.title}</CardTitle>
-                          </CardHeader>
-                        </Card>
-                      }
-                      nativeButton={false}
-                    />
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>{project.title}</DialogTitle>
-                        <DialogDescription>
-                          {project.description}
-                        </DialogDescription>
-                        {project.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary">
-                            {tag}
-                          </Badge>
-                        ))}
-                      </DialogHeader>
-                      <Carousel>
-                        <CarouselContent>
-                          {project.pictures.map((string) => (
-                            <CarouselItem key={string}>
-                              <Image
-                                src={require(
-                                  `@/assets/projects/${project.slug}/${string}`,
-                                )}
-                                alt={project.title}
-                                className="aspect-video object-cover"
-                              />
-                            </CarouselItem>
+          <Carousel>
+            <CarouselContent>
+              {projects.map((project) => (
+                <CarouselItem key={project.slug} className="basis-1/3">
+                  <Dialog>
+                    <form>
+                      <DialogTrigger
+                        render={
+                          <Card className="relative mx-auto w-full max-w-sm pt-0">
+                            <Image
+                              src={require(
+                                `@/assets/projects/${project.slug}/${project.pictures[0]}`,
+                              )}
+                              alt={project.title}
+                              className="aspect-video object-cover"
+                            />
+                            <CardHeader>
+                              <CardTitle>{project.title}</CardTitle>
+                            </CardHeader>
+                          </Card>
+                        }
+                        nativeButton={false}
+                      />
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>{project.title}</DialogTitle>
+                          <DialogDescription>
+                            {project.description}
+                          </DialogDescription>
+                          {project.tags.map((tag) => (
+                            <Badge key={tag} variant="secondary">
+                              {tag}
+                            </Badge>
                           ))}
-                        </CarouselContent>
-                        <CarouselPrevious />
-                        <CarouselNext />
-                      </Carousel>
-                      <DialogFooter>
-                        <DialogClose
-                          render={<Button variant="outline">Close</Button>}
-                        />
-                      </DialogFooter>
-                    </DialogContent>
-                  </form>
-                </Dialog>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+                        </DialogHeader>
+                        <Carousel>
+                          <CarouselContent>
+                            {project.pictures.map((string) => (
+                              <CarouselItem key={string}>
+                                <Image
+                                  src={require(
+                                    `@/assets/projects/${project.slug}/${string}`,
+                                  )}
+                                  alt={project.title}
+                                  className="aspect-video object-cover"
+                                />
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious />
+                          <CarouselNext />
+                        </Carousel>
+                        <DialogFooter>
+                          <DialogClose
+                            render={<Button variant="outline">Close</Button>}
+                          />
+                        </DialogFooter>
+                      </DialogContent>
+                    </form>
+                  </Dialog>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
       </section>
 
       <section id="contact" className="py-24 container mx-auto px-6">
@@ -240,45 +268,47 @@ const App = () => {
             </div>
           </div>
 
-          <Card className="w-full max-w-sm">
-            <CardContent>
-              <form>
-                <div className="flex flex-col gap-6">
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Nom</Label>
-                    <Input
-                      id="text"
-                      type="text"
-                      placeholder="Jean Dupont"
-                      required
-                    />
+          <div className="flex justify-center">
+            <Card className="w-full max-w-sm">
+              <CardContent>
+                <form>
+                  <div className="flex flex-col gap-6">
+                    <div className="grid gap-2">
+                      <Label htmlFor="email">Nom</Label>
+                      <Input
+                        id="text"
+                        type="text"
+                        placeholder="Jean Dupont"
+                        required
+                      />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="jean@example.com"
+                        required
+                      />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="message">Message</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Décrivez votre projet..."
+                        required
+                      />
+                    </div>
                   </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="jean@example.com"
-                      required
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Décrivez votre projet..."
-                      required
-                    />
-                  </div>
-                </div>
-              </form>
-            </CardContent>
-            <CardFooter className="flex-col gap-2">
-              <Button type="submit" className="w-full">
-                Envoyer la demande
-              </Button>
-            </CardFooter>
-          </Card>
+                </form>
+              </CardContent>
+              <CardFooter className="flex-col gap-2">
+                <Button type="submit" className="w-full">
+                  Envoyer la demande
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
         </div>
       </section>
     </>

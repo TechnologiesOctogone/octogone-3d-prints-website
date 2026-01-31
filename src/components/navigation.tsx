@@ -17,7 +17,7 @@ export function Navigation() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            render={<Link href="#about" />}
+            render={<Link href="/#about" />}
           >
             À propos
           </NavigationMenuLink>
@@ -25,7 +25,7 @@ export function Navigation() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            render={<Link href="#services" />}
+            render={<Link href="/#services" />}
           >
             Services
           </NavigationMenuLink>
@@ -33,7 +33,7 @@ export function Navigation() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            render={<Link href="#projects" />}
+            render={<Link href="/#projects" />}
           >
             Projets
           </NavigationMenuLink>
@@ -41,7 +41,7 @@ export function Navigation() {
         <NavigationMenuItem>
           <NavigationMenuLink
             className={navigationMenuTriggerStyle()}
-            render={<Link href="#contact" />}
+            render={<Link href="/#contact" />}
           >
             Contact
           </NavigationMenuLink>
