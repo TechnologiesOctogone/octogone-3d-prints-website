@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LogoFull } from "@/components/icons/logo-full";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Navigation } from "@/components/navigation";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -28,12 +29,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <nav className="fixed w-full z-50 bg-background border-b">
-            <div className="container mx-auto h-16 flex justify-between">
-              <Link href="/" className="my-auto">
+            <div className="container mx-auto h-16 flex justify-between items-center">
+              <Link href="/">
                 <LogoFull className="h-10" />
               </Link>
-
               <Navigation />
+              <ModeToggle />
             </div>
           </nav>
 

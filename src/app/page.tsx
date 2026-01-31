@@ -173,11 +173,14 @@ const App = () => {
                           </CardHeader>
                         </Card>
                       }
+                      nativeButton={false}
                     />
                     <DialogContent>
                       <DialogHeader>
                         <DialogTitle>{project.title}</DialogTitle>
-                        <DialogDescription>{project.description}</DialogDescription>
+                        <DialogDescription>
+                          {project.description}
+                        </DialogDescription>
                         {project.tags.map((tag) => (
                           <Badge key={tag} variant="secondary">
                             {tag}
@@ -188,21 +191,23 @@ const App = () => {
                         <CarouselContent>
                           {project.pictures.map((string) => (
                             <CarouselItem key={string}>
-                            <Image
-                              src={require(
-                                `@/assets/projects/${project.slug}/${string}`,
-                              )}
-                              alt={project.title}
-                              className="aspect-video object-cover"
-                            />
+                              <Image
+                                src={require(
+                                  `@/assets/projects/${project.slug}/${string}`,
+                                )}
+                                alt={project.title}
+                                className="aspect-video object-cover"
+                              />
                             </CarouselItem>
-                          ))} 
-                        </CarouselContent> 
+                          ))}
+                        </CarouselContent>
                         <CarouselPrevious />
                         <CarouselNext />
                       </Carousel>
                       <DialogFooter>
-                        <DialogClose render={<Button variant="outline">Close</Button>} />
+                        <DialogClose
+                          render={<Button variant="outline">Close</Button>}
+                        />
                       </DialogFooter>
                     </DialogContent>
                   </form>
