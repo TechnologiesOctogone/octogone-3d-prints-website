@@ -20,7 +20,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="${inter.variable} scroll-smooth" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="${inter.variable} scroll-smooth"
+      suppressHydrationWarning
+    >
       <body>
         <ThemeProvider
           attribute="class"
