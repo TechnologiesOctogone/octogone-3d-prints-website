@@ -36,7 +36,7 @@ export default function RootLayout({
           <nav className="fixed w-full z-50 bg-background border-b">
             <div className="container mx-auto h-16 flex justify-between items-center">
               <Link href="/">
-                <LogoFull className="h-10" />
+                <LogoFull className="h-12" />
               </Link>
               <Navigation />
               <Button>
