@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { ChevronsRight } from "lucide-react";
 
 import { LogoFull } from "@/components/icons/logo-full";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Navigation } from "@/components/navigation";
+import { Button } from "@/components/ui/button";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -38,7 +39,10 @@ export default function RootLayout({
                 <LogoFull className="h-10" />
               </Link>
               <Navigation />
-              <ModeToggle />
+              <Button>
+                Imprimez
+                <ChevronsRight />
+              </Button>
             </div>
           </nav>
 
