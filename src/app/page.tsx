@@ -52,6 +52,7 @@ const App = () => {
       >
         <div>
           <Badge className="mb-6" variant="secondary">
+            <span className="relative size-2 rounded-full bg-primary before:absolute before:inset-0 before:animate-ping before:rounded-full before:bg-primary" />
             2 imprimantes en ligne
           </Badge>
           <h1 className="text-6xl font-bold tracking-tighter mb-6">
