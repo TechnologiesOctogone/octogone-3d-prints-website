@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
+  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -17,6 +19,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { ItemGroup, Item, ItemContent, ItemTitle } from "./ui/item";
 
 const links = [
   { href: "/#about", label: "À propos" },
@@ -27,10 +30,9 @@ const links = [
 
 export function Navigation() {
   return (
-    <div className="flex items-center justify-between w-full">
-      {/* Desktop */}
+    <>
       <NavigationMenu className="hidden md:flex">
-        <NavigationMenuList>
+        <NavigationMenuList className="gap-3">
           {links.map((link) => (
             <NavigationMenuItem key={link.href}>
               <NavigationMenuLink
@@ -44,32 +46,25 @@ export function Navigation() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      {/* Mobile */}
       <div className="md:hidden">
         <Sheet>
-          <SheetTrigger
-            render={
-              <Button variant="ghost" size="icon">
-                <Menu />
-              </Button>
-            }
-          />
-          <SheetContent side="right" className="w-64">
-            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <nav className="flex flex-col gap-4 mt-8">
+          <SheetTrigger render={<Button variant="ghost" size="icon" />}>
+            <Menu />
+          </SheetTrigger>
+          <SheetContent showCloseButton={false}>
+            <div className="grid gap-6 p-4">
               {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-lg font-medium hover:text-primary"
-                >
+                <Button key={link.href} render={<Link href={link.href} />}>
                   {link.label}
-                </Link>
+                </Button>
               ))}
-            </nav>
+            </div>
+            <SheetFooter>
+              <Button>Test</Button>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
-    </div>
+    </>
   );
 }
