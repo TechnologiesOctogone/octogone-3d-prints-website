@@ -1,17 +1,8 @@
 "use client";
 
-import * as React from "react";
-import Link from "next/link";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -19,7 +10,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ItemGroup, Item, ItemContent, ItemTitle } from "./ui/item";
+import {
+  Sheet,
+  SheetContent,
+  SheetFooter,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const links = [
   { href: "/#about", label: "À propos" },

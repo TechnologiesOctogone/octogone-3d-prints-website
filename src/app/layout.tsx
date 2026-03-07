@@ -1,16 +1,16 @@
+import { ChevronsRight } from "lucide-react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { ChevronsRight, YoutubeIcon } from "lucide-react";
 
 import { LogoFull } from "@/components/icons/logo-full";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+import { Logo } from "@/components/icons/logo";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/icons/logo";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const _inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Octogone 3D Prints",
