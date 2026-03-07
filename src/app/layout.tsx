@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { ChevronsRight } from "lucide-react";
+import { ChevronsRight, YoutubeIcon } from "lucide-react";
 
 import { LogoFull } from "@/components/icons/logo-full";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/icons/logo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -39,7 +40,10 @@ export default function RootLayout({
                 <LogoFull className="h-12" />
               </Link>
               <Navigation />
-              <Button>
+              <Button
+                nativeButton={false}
+                render=<Link href="mailto:info@octogone3dprints.com" />
+              >
                 Imprimez
                 <ChevronsRight />
               </Button>
@@ -51,6 +55,7 @@ export default function RootLayout({
 
           <footer className="py-6 border-t">
             <div className="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-4">
+              <Logo className="size-8" />
               <p className="text-xs">
                 © 2025 Octogone 3D Prints™. Tous droits réservés.
               </p>

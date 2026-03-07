@@ -52,7 +52,7 @@ const App = () => {
       >
         <div>
           <Badge className="mb-6" variant="secondary">
-            <span className="relative size-2 rounded-full bg-primary before:absolute before:inset-0 before:animate-ping before:rounded-full before:bg-primary" />
+            <span className="relative size-2 rounded-full bg-emerald-400 before:absolute before:inset-0 before:animate-ping before:rounded-full before:bg-emerald-400 mr-1" />
             2 imprimantes en ligne
           </Badge>
           <h1 className="text-6xl font-bold tracking-tighter mb-6">
@@ -78,7 +78,7 @@ const App = () => {
           </div>
         </div>
 
-        <Card className="relative w-full max-w-md mx-auto py-0">
+        <Card className="relative w-full max-w-md mx-auto py-0 lg:block hidden">
           <div
             className="absolute z-0 inset-0 opacity-50"
             style={{
@@ -267,48 +267,6 @@ const App = () => {
                 info@octogone3dprints.com
               </a>
             </div>
-          </div>
-
-          <div className="flex justify-center">
-            <Card className="w-full max-w-sm">
-              <CardContent>
-                <form>
-                  <div className="flex flex-col gap-6">
-                    <div className="grid gap-2">
-                      <Label htmlFor="email">Nom</Label>
-                      <Input
-                        id="text"
-                        type="text"
-                        placeholder="Jean Dupont"
-                        required
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="jean@example.com"
-                        required
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Décrivez votre projet..."
-                        required
-                      />
-                    </div>
-                  </div>
-                </form>
-              </CardContent>
-              <CardFooter className="flex-col gap-2">
-                <Button type="submit" className="w-full">
-                  Envoyer la demande
-                </Button>
-              </CardFooter>
-            </Card>
           </div>
         </div>
       </section>
