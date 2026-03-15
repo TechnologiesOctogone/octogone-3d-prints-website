@@ -1,5 +1,6 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
   outputs =
     { nixpkgs, ... }:
     let
@@ -11,6 +12,8 @@
         packages = with pkgs; [
           nodejs
           pnpm
+          typescript
+          typescript-language-server
         ];
       };
     };
