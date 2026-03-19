@@ -2,8 +2,7 @@
 
 import { Clock, Heart, Mail, Trophy } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { HeroSection } from "@/components/modules/landing/hero-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,57 +36,7 @@ import services from "@/data/services";
 const App = () => {
   return (
     <>
-      <section
-        id="hero"
-        className="container mx-auto py-32 grid lg:grid-cols-2 gap-16 items-center px-6"
-      >
-        <div>
-          <Badge className="mb-6" variant="secondary">
-            <span className="relative size-2 rounded-full bg-emerald-400 before:absolute before:inset-0 before:animate-ping before:rounded-full before:bg-emerald-400 mr-1" />
-            2 imprimantes en ligne
-          </Badge>
-          <h1 className="text-6xl font-bold tracking-tighter mb-6">
-            Ouvrez la porte des personnalisations infinies.
-          </h1>
-          <p className="text-muted-foreground text-lg mb-12 max-w-lg">
-            Bienvenue chez Octogone 3D Prints™. Notre mission est de promouvoir
-            la créativité et l'expertise technique à chaque étape de la chaîne
-            de valeur. Qualité et contrôle sont la pierre angulaire de notre
-            pratique.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button render={<Link href="#contact" />} nativeButton={false}>
-              Imprimez
-            </Button>
-            <Button
-              variant="secondary"
-              render={<Link href="#services" />}
-              nativeButton={false}
-            >
-              Nos services
-            </Button>
-          </div>
-        </div>
-
-        <Card className="relative w-full max-w-md mx-auto py-0 lg:block hidden">
-          <div
-            className="absolute z-0 inset-0 opacity-50"
-            style={{
-              backgroundImage: "radial-gradient(grey 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-            }}
-          />
-
-          <AspectRatio ratio={1 / 1}>
-            <Image
-              src={require("@/assets/hero.png")}
-              alt="3D Printing Preview"
-              fill
-              className="object-contain"
-            />
-          </AspectRatio>
-        </Card>
-      </section>
+      <HeroSection />
 
       <section id="stats" className="py-24 bg-secondary/50">
         <div className="container mx-auto grid grid-cols-3 gap-10">
