@@ -1,35 +1,37 @@
 "use client";
 
 import Image from "next/image";
+import { ProjectGallery } from "@/components/modules/portfolio/project-gallery";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { ProjectGallery } from "@/components/modules/portfolio/project-gallery";
 import type { Project } from "@/lib/types/portfolio";
 
 export function ProjectItem({ project }: { project: Project }) {
   return (
     <Dialog>
-      <DialogTrigger asChild>
+      <DialogTrigger>
         <div className="cursor-pointer transition-opacity hover:opacity-80">
           <Card className="overflow-hidden">
             <div className="relative aspect-video w-full">
-              <Image 
-                src={project.images[0]} 
-                alt={project.title} 
-                fill 
-                className="object-cover" 
+              <Image
+                src={`/projects/${project.slug}/${project.pictures[0]}`}
+                alt={project.title}
+                fill
+                className="object-cover"
               />
             </div>
             {/* Tighter padding on mobile */}
             <CardHeader className="p-4 sm:p-6">
-              <CardTitle className="text-base sm:text-lg">{project.title}</CardTitle>
+              <CardTitle className="text-base sm:text-lg">
+                {project.title}
+              </CardTitle>
             </CardHeader>
           </Card>
         </div>
@@ -41,7 +43,7 @@ export function ProjectItem({ project }: { project: Project }) {
           <DialogTitle>{project.title}</DialogTitle>
           <DialogDescription>{project.description}</DialogDescription>
         </DialogHeader>
-        <ProjectGallery images={project.images} title={project.title} />
+        <ProjectGallery images={project.pictures} title={project.title} />
       </DialogContent>
     </Dialog>
   );

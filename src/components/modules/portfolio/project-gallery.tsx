@@ -5,8 +5,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 type Props = {
@@ -21,12 +21,14 @@ export function ProjectGallery({ images, title }: Props) {
         {images.map((img, i) => (
           <CarouselItem key={i}>
             <div className="relative aspect-video w-full overflow-hidden rounded-md">
-              <Image 
-                src={img} 
-                alt={`${title} - view ${i + 1}`} 
-                fill 
-                className="object-cover" 
-              />
+              {
+                <Image
+                  src={img}
+                  alt={`${title} - view ${i + 1}`}
+                  fill
+                  className="object-cover"
+                />
+              }{" "}
             </div>
           </CarouselItem>
         ))}

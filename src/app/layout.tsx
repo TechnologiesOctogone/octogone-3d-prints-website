@@ -1,12 +1,11 @@
-import { ChevronsRight } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
-
+import { Header } from "@/components/layout/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import { Logo } from "@/components/icons/logo";
-import { Header } from "@/components/layout/header";
-import { Button } from "@/components/ui/button";
+import { Inter } from "next/font/google";
+import { Footer } from "@/components/layout/footer";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Octogone 3D Prints",
@@ -14,25 +13,13 @@ export const metadata: Metadata = {
     "Services d'impression 3D de haute qualité pour vos projets personnels et professionnels.",
 };
 
-export function Action() {
-  return (
-    <Button
-      nativeButton={false}
-      render=<Link href="mailto:info@octogone3dprints.com" />
-    >
-      Imprimez
-      <ChevronsRight />
-    </Button>
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className="${inter.variable} scroll-smooth"
+      className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body>
@@ -43,17 +30,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <div className="h-16" />
           {children}
-
-          <footer className="py-6 border-t">
-            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-center items-center gap-4">
-              <Logo className="size-8" />
-              <p className="text-xs">
-                © 2025 Octogone 3D Prints™. Tous droits réservés.
-              </p>
-            </div>
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

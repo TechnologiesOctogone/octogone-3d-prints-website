@@ -1,11 +1,11 @@
+import { ProjectItem } from "@/components/modules/portfolio/project-item";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ProjectItem } from "@/components/modules/portfolio/project-item";
 import PROJECTS from "@/lib/data/portfolio.json";
 
 export function PortfolioSection() {
@@ -14,8 +14,8 @@ export function PortfolioSection() {
       <Carousel className="mx-auto w-full max-w-6xl">
         <CarouselContent className="-ml-4">
           {PROJECTS.map((p) => (
-            <CarouselItem 
-              key={p.id} 
+            <CarouselItem
+              key={p.slug}
               // 1 card mobile, 2 tablet, 3 desktop
               className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
             >

@@ -2,7 +2,7 @@
 
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { NAV_LINKS } from "@/lib/config/navigation";
 import { Action } from "../modules/marketing/action";
 import {
@@ -16,10 +16,10 @@ export function MobileNav({ className }: { className?: string }) {
   return (
     <div className={className}>
       <Drawer>
-        <DrawerTrigger>
-          <Button variant="secondary" size="icon-lg">
-            <Menu />
-          </Button>
+        <DrawerTrigger
+          className={buttonVariants({ variant: "secondary", size: "icon-lg" })}
+        >
+          <Menu />
         </DrawerTrigger>
         <DrawerContent className="h-full">
           <div className="grid gap-3 p-4">
