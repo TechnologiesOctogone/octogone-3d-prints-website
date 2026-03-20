@@ -1,11 +1,13 @@
 "use client";
 
-import { Clock, Heart, Mail, Trophy } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import { HeroSection } from "@/components/modules/landing/hero-section";
+import { ServicesSection } from "@/components/modules/landing/services-section";
+import { StatsSection } from "@/components/modules/landing/stats-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -23,55 +25,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemMedia,
-  ItemTitle,
-} from "@/components/ui/item";
 import projects from "@/data/projects.json";
-import services from "@/data/services";
-import { StatsSection } from "@/components/modules/landing/stats-section";
 
 const App = () => {
   return (
     <>
       <HeroSection />
       <StatsSection />
-
-      <section id="services" className="py-24 container mx-auto px-6">
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
-            Expertise Technique
-          </h2>
-          <p className="text-muted-foreground">
-            Du design à la production, nous couvrons tout le spectre de la
-            fabrication additive.
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          {Object.entries(services).map(([key, items]) => (
-            <div key={key}>
-              <h3 className="text-lg font-bold uppercase tracking-widest mb-4">
-                {key}
-              </h3>
-              <div className="space-y-3">
-                {items.map((service) => (
-                  <Item variant="outline" key={service.title}>
-                    <ItemMedia>{service.icon}</ItemMedia>
-                    <ItemContent>
-                      <ItemTitle>{service.title}</ItemTitle>
-                      <ItemDescription>{service.desc}</ItemDescription>
-                    </ItemContent>
-                  </Item>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ServicesSection />
 
       <section id="projects" className="py-24 bg-secondary/50">
         <div className="container mx-auto px-6">

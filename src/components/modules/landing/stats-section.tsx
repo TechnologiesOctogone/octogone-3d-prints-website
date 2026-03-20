@@ -1,4 +1,4 @@
-import { Trophy, Clock, Heart } from "lucide-react";
+import { Clock, Heart, Trophy } from "lucide-react";
 import { StatCard } from "@/components/modules/landing/stat-card";
 
 // Hoist logic outside the component to prevent recalculation on re-renders
@@ -8,9 +8,21 @@ const getProjectsCount = () => {
 };
 
 const STATS_DATA = [
-  { icon: <Trophy className="h-6 w-6 text-primary" />, value: getProjectsCount(), label: "Projets réalisés" },
-  { icon: <Clock className="h-6 w-6 text-primary" />, value: "5+", label: "Années d'expérience" },
-  { icon: <Heart className="h-6 w-6 text-primary" />, value: "100%", label: "Satisfaction" },
+  {
+    icon: <Trophy className="h-6 w-6 text-primary" />,
+    value: getProjectsCount(),
+    label: "Projets réalisés",
+  },
+  {
+    icon: <Clock className="h-6 w-6 text-primary" />,
+    value: "5+",
+    label: "Années d'expérience",
+  },
+  {
+    icon: <Heart className="h-6 w-6 text-primary" />,
+    value: "100%",
+    label: "Satisfaction",
+  },
 ];
 
 export function StatsSection() {
