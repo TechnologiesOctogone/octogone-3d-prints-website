@@ -13,51 +13,51 @@ export const SERVICES = {
   conception: [
     {
       title: "Idéation",
-      icon: <Rocket className="w-5 h-5" />,
+      icon: <Rocket />,
       desc: "De l'idée au concept concret.",
     },
     {
       title: "Modélisation technique",
-      icon: <PenTool className="w-5 h-5" />,
+      icon: <PenTool />,
       desc: "CAO précise pour fabrication.",
     },
     {
       title: "Sélection matériaux",
-      icon: <Layers className="w-5 h-5" />,
+      icon: <Layers />,
       desc: "Optimisation selon l'usage.",
     },
   ],
   impression: [
     {
       title: "Impression à la demande",
-      icon: <Box className="w-5 h-5" />,
+      icon: <Box />,
       desc: "Vos fichiers STL en réalité.",
     },
     {
       title: "Séries & Catalogues",
-      icon: <Layers className="w-5 h-5" />,
+      icon: <Layers />,
       desc: "Production de petites séries.",
     },
     {
       title: "Prototypage",
-      icon: <Settings className="w-5 h-5" />,
+      icon: <Settings />,
       desc: "Validation rapide de design.",
     },
     {
       title: "Post-traitement",
-      icon: <Palette className="w-5 h-5" />,
+      icon: <Palette />,
       desc: "Finition, ponçage et peinture.",
     },
   ],
   conseil: [
     {
       title: "Formations",
-      icon: <Cpu className="w-5 h-5" />,
+      icon: <Cpu />,
       desc: "Apprenez à maîtriser vos outils.",
     },
     {
       title: "Design for AM",
-      icon: <Zap className="w-5 h-5" />,
+      icon: <Zap />,
       desc: "Optimisation spécifique 3D.",
     },
   ],

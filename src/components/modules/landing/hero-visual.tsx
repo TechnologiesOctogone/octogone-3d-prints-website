@@ -14,7 +14,7 @@ export function HeroVisual() {
       />
       <AspectRatio ratio={1 / 1}>
         <Image
-          src={require("@/assets/hero.png")}
+          src={require("@/assets/hero/1.webp")}
           alt="3D Printing Preview"
           fill
           className="object-contain"
