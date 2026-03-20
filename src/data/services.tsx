@@ -9,7 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 
-export default {
+export const SERVICES = {
   conception: [
     {
       title: "Idéation",

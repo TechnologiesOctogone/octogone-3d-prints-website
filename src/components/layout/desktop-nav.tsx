@@ -6,7 +6,7 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { NAV_LINKS } from "@/lib/config/navigation";
+import { NAV_LINKS } from "@/config/navigation";
 
 export function DesktopNav({ className }: { className?: string }) {
   return (

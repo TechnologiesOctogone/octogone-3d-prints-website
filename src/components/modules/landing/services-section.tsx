@@ -1,5 +1,5 @@
 import { ServiceCategory } from "@/components/modules/landing/service-category";
-import { SERVICES } from "@/lib/config/services"; // Hoist data outside
+import { SERVICES } from "@/data/services"; // Hoist data outside
 
 export function ServicesSection() {
   return (

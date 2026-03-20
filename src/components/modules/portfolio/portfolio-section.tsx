@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import PROJECTS from "@/lib/data/portfolio.json";
+import PROJECTS from "@/data/portfolio.json";
 
 export function PortfolioSection() {
   return (

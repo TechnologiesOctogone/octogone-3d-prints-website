@@ -3,7 +3,7 @@
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { NAV_LINKS } from "@/lib/config/navigation";
+import { NAV_LINKS } from "@/config/navigation";
 import { Action } from "../modules/marketing/action";
 import {
   Drawer,
