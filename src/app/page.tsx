@@ -32,47 +32,13 @@ import {
 } from "@/components/ui/item";
 import projects from "@/data/projects.json";
 import services from "@/data/services";
+import { StatsSection } from "@/components/modules/landing/stats-section";
 
 const App = () => {
   return (
     <>
       <HeroSection />
-
-      <section id="stats" className="py-24 bg-secondary/50">
-        <div className="container mx-auto grid grid-cols-3 gap-10">
-          {[
-            {
-              icon: <Trophy className="w-6 h-6 text-primary" />,
-              value: `${Math.floor((Date.now() - new Date("2025-06-01").getTime()) / 604800000)}+`,
-              label: "Projets réalisés",
-            },
-            {
-              icon: <Clock className="w-6 h-6 text-primary" />,
-              value: "5+",
-              label: "Années d'expérience",
-            },
-            {
-              icon: <Heart className="w-6 h-6 text-primary" />,
-              value: "100%",
-              label: "Satisfaction",
-            },
-          ].map(({ icon, value, label }) => (
-            <Card key={label}>
-              <CardContent className="flex flex-col items-center justify-center p-6 text-center">
-                <div className="bg-primary/10 p-3 rounded-full mb-4">
-                  {icon}
-                </div>
-                <span className="text-4xl font-bold tracking-tight">
-                  {value}
-                </span>
-                <span className="text-sm font-medium text-muted-foreground mt-1 uppercase tracking-wide">
-                  {label}
-                </span>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+      <StatsSection />
 
       <section id="services" className="py-24 container mx-auto px-6">
         <div className="mb-16">
