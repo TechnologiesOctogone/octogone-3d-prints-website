@@ -1,4 +1,4 @@
-import { ServiceItem } from "@/components/modules/landing/service-item";
+import { ServiceItem } from "./service-item";
 
 type Service = {
   icon: React.ReactNode;

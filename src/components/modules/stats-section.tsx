@@ -1,5 +1,5 @@
 import { Clock, Heart, Trophy } from "lucide-react";
-import { StatCard } from "@/components/modules/landing/stat-card";
+import { StatCard } from "./stat-card";
 
 // Hoist logic outside the component to prevent recalculation on re-renders
 const getProjectsCount = () => {

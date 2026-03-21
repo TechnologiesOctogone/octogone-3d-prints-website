@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { LogoFull } from "@/components/icons/logo-full";
 import { NAV_LINKS } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { Action } from "../modules/marketing/action";
+import { Action } from "../modules/action";
 import { Button, buttonVariants } from "../ui/button";
 import {
   Drawer,

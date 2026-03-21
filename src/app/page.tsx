@@ -1,9 +1,9 @@
 "use client";
 
-import { HeroSection } from "@/components/modules/landing/hero-section";
-import { ServicesSection } from "@/components/modules/landing/services-section";
-import { StatsSection } from "@/components/modules/landing/stats-section";
-import { PortfolioSection } from "@/components/modules/portfolio/portfolio-section";
+import { HeroSection } from "@/components/modules/hero-section";
+import { ProjectsSection } from "@/components/modules/projects";
+import { ServicesSection } from "@/components/modules/services-section";
+import { StatsSection } from "@/components/modules/stats-section";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <HeroSection />
       <StatsSection />
       <ServicesSection />
-      <PortfolioSection />
+      <ProjectsSection />
     </>
   );
 };
