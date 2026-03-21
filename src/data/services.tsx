@@ -8,8 +8,9 @@ import {
   Settings,
   Zap,
 } from "lucide-react";
+import type { Service } from "@/types/landing";
 
-export const SERVICES = {
+export const SERVICES: Record<string, Service[]> = {
   conception: [
     {
       title: "Idéation",

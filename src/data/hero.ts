@@ -1,1 +1,1 @@
-export const IMAGES = ["1.webp", "2.webp", "3.webp", "4.webp"];
+export const IMAGES: string[] = ["1.webp", "2.webp", "3.webp", "4.webp"];

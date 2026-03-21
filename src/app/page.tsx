@@ -1,9 +1,9 @@
 "use client";
 
-import { HeroSection } from "@/components/modules/hero-section";
+import { HeroSection } from "@/components/modules/hero";
 import { ProjectsSection } from "@/components/modules/projects";
-import { ServicesSection } from "@/components/modules/services-section";
-import { StatsSection } from "@/components/modules/stats-section";
+import { ServicesSection } from "@/components/modules/services";
+import { StatsSection } from "@/components/modules/stats";
 
 const App = () => {
   return (

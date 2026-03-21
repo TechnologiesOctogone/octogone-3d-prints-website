@@ -4,9 +4,8 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LogoFull } from "@/components/icons/logo-full";
-import { NAV_LINKS } from "@/config/navigation";
+import { LINKS } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { Action } from "../modules/action";
 import { Button, buttonVariants } from "../ui/button";
 import {
   Drawer,
@@ -14,6 +13,7 @@ import {
   DrawerFooter,
   DrawerTrigger,
 } from "../ui/drawer";
+import { Action } from "./action";
 
 function MobileNav({ className }: { className?: string }) {
   return (
@@ -26,7 +26,7 @@ function MobileNav({ className }: { className?: string }) {
         </DrawerTrigger>
         <DrawerContent className="h-full">
           <div className="grid gap-3 p-4">
-            {NAV_LINKS.map((link) => (
+            {LINKS.map((link) => (
               <Link
                 key={link.id}
                 href={link.id}
@@ -56,7 +56,7 @@ export function DesktopNav({
 }) {
   return (
     <nav className={`flex items-center gap-3 ${className ?? ""}`}>
-      {NAV_LINKS.map((link) => (
+      {LINKS.map((link) => (
         <Button
           key={link.id}
           variant={active === link.id ? "default" : "ghost"}
@@ -82,7 +82,7 @@ export function Header() {
       { rootMargin: "-50% 0px -50% 0px" },
     );
 
-    NAV_LINKS.forEach(({ id }) => {
+    LINKS.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });

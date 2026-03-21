@@ -40,7 +40,7 @@ export function ProjectGallery({
                   fill
                   className="object-cover"
                 />
-              }{" "}
+              }
             </div>
           </CarouselItem>
         ))}
