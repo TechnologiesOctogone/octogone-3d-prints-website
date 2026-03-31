@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { IMAGES } from "@/data/hero";
 import { Action } from "../layout/action";
 
 export function PrinterStatusBadge() {
@@ -41,8 +42,19 @@ export function HeroContent() {
 }
 
 export function HeroVisual() {
+  const [image, setImage] = useState<string | null>(null);
+  useEffect(
+    () =>
+      setImage(
+        require(
+          `@/assets/hero/${IMAGES[Math.floor(Math.random() * IMAGES.length)]}`,
+        ),
+      ),
+    [],
+  );
+
   return (
-    <Card className="relative mx-auto hidden w-full max-w-md py-0 lg:block">
+    <Card className="relative hidden lg:block aspect-square max-w-md mx-auto">
       <div
         className="absolute inset-0 z-0 opacity-50"
         style={{
@@ -50,14 +62,17 @@ export function HeroVisual() {
           backgroundSize: "24px 24px",
         }}
       />
-      <AspectRatio ratio={1 / 1}>
-        <Image
-          src={require("@/assets/hero/1.webp")}
-          alt="3D Printing Preview"
-          fill
-          className="object-contain"
-        />
-      </AspectRatio>
+      <div className="flex items-center h-full">
+        {image && (
+          <Image
+            src={image}
+            alt="3D Printing Preview"
+            width={512}
+            height={512}
+            className="z-1"
+          />
+        )}
+      </div>
     </Card>
   );
 }
