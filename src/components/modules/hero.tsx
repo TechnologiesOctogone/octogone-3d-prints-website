@@ -20,7 +20,11 @@ export function HeroContent() {
       <PrinterStatusBadge />
 
       <h1 className="mb-4 text-4xl font-bold tracking-tighter md:text-5xl lg:mb-6 lg:text-6xl">
-        Ouvrez la porte des personnalisations infinies.
+        Ouvrez la porte des personnalisations{" "}
+        <span className="bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
+          infinies
+        </span>
+        .
       </h1>
 
       <p className="mb-8 max-w-lg text-base text-muted-foreground md:text-lg lg:mb-12">
