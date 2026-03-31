@@ -3,7 +3,14 @@
 import Image from "next/image";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/types/landing";
-import { Card, CardHeader, CardTitle } from "../ui/card";
+import { Button } from "../ui/button";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -56,37 +63,37 @@ function ProjectGallery({
 
 function ProjectItem({ project }: { project: Project }) {
   return (
-    <Dialog>
-      <DialogTrigger className="block w-full text-left">
-        <div className="w-full cursor-pointer transition-opacity hover:opacity-80">
-          <Card className="overflow-hidden">
-            <div className="relative aspect-video w-full">
-              <Image
-                src={require(
-                  `@/assets/projects/${project.slug}/${project.pictures[0]}`,
-                )}
-                alt={project.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <CardHeader className="p-4 sm:p-6">
-              <CardTitle className="text-base sm:text-lg line-clamp-1">
-                {project.title}
-              </CardTitle>
-            </CardHeader>
-          </Card>
-        </div>
-      </DialogTrigger>
-
-      <DialogContent className="w-[95vw] max-w-3xl rounded-lg p-4 sm:p-6">
-        <DialogHeader>
-          <DialogTitle>{project.title}</DialogTitle>
-          <DialogDescription>{project.description}</DialogDescription>
-        </DialogHeader>
-        <ProjectGallery pictures={project.pictures} slug={project.slug} />
-      </DialogContent>
-    </Dialog>
+    <Card>
+      <Image
+        src={require(
+          `@/assets/projects/${project.slug}/${project.pictures[0]}`,
+        )}
+        alt={project.title}
+        className="aspect-video object-cover"
+      />
+      <CardHeader>
+        <CardTitle className="line-clamp-1">{project.title}</CardTitle>
+        <CardDescription className="line-clamp-3">
+          {project.description}
+        </CardDescription>
+      </CardHeader>
+      <CardFooter>
+        <Dialog>
+          <DialogTrigger
+            render={<Button className="w-full" variant="secondary" />}
+          >
+            View
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>{project.title}</DialogTitle>
+              <DialogDescription>{project.description}</DialogDescription>
+            </DialogHeader>
+            <ProjectGallery pictures={project.pictures} slug={project.slug} />
+          </DialogContent>
+        </Dialog>
+      </CardFooter>
+    </Card>
   );
 }
 

@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
       "Impression à grande échelle",
       "Design",
     ],
-    pictures: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
+    pictures: ["2.webp", "1.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
   },
   {
     slug: "cookie-box",
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
       "Impression à la demande",
       "Assurance qualité",
     ],
-    pictures: ["1.webp", "2.webp", "3.webp", "4.webp"],
+    pictures: ["4.webp", "2.webp", "3.webp", "1.webp"],
   },
   {
     slug: "ipad-stand",
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
       "Impression par catalogues",
       "Assurance qualité",
     ],
-    pictures: ["1.webp", "2.webp", "3.webp", "4.webp"],
+    pictures: ["3.webp", "2.webp", "1.webp", "4.webp"],
   },
   {
     slug: "phone-stand",
@@ -77,6 +77,6 @@ export const PROJECTS: Project[] = [
     description:
       "La cliente voulait une lanterne afin de décorer sa table de mariage. Elle nous a partagé ses inspirations et nous avons dessiné ce modèle. L’enjeu principal était le design pour la fabrication, car chaque pièce est indépendante pour faciliter l’impression et l’utilisation finale. Les 48 lanternes produites sont assemblées et étiquetées pour l’ensemble des invités. Ce projet nous a marqué, car même si la complexité est modérée, les attentes étaient hautes. Cependant, nous sommes fiers d’avoir participé à un moment aussi important de la vie.",
     tags: ["Conception", "Impression à la demande", "Post-traitement"],
-    pictures: ["1.webp", "2.webp", "3.webp", "4.webp"],
+    pictures: ["3.webp", "2.webp", "1.webp", "4.webp"],
   },
 ];
