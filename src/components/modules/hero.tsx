@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Action } from "../layout/action";
 
 export function PrinterStatusBadge() {
   return (
@@ -30,21 +30,7 @@ export function HeroContent() {
       </p>
 
       <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row lg:gap-4">
-        <Button
-          render={<Link href="#contact" />}
-          nativeButton={false}
-          className="w-full sm:w-auto"
-        >
-          Imprimez
-        </Button>
-        <Button
-          variant="secondary"
-          render={<Link href="#services" />}
-          nativeButton={false}
-          className="w-full sm:w-auto"
-        >
-          Nos services
-        </Button>
+        <Action className={buttonVariants()} />
       </div>
     </div>
   );

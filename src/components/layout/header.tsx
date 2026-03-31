@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { LogoFull } from "@/components/icons/logo-full";
 import { LINKS } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import {
   Drawer,
   DrawerContent,
@@ -57,14 +57,15 @@ export function DesktopNav({
   return (
     <nav className={`flex items-center gap-3 ${className ?? ""}`}>
       {LINKS.map((link) => (
-        <Button
+        <Link
           key={link.id}
-          variant={active === link.id ? "default" : "ghost"}
-          render={<Link href={`#${link.id}`} />}
-          nativeButton={false}
+          href={`#${link.id}`}
+          className={buttonVariants({
+            variant: active === link.id ? "default" : "ghost",
+          })}
         >
           {link.label}
-        </Button>
+        </Link>
       ))}
     </nav>
   );
