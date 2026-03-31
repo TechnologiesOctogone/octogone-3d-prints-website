@@ -11,6 +11,7 @@ import {
   Drawer,
   DrawerContent,
   DrawerFooter,
+  DrawerTitle,
   DrawerTrigger,
 } from "../ui/drawer";
 import { Action } from "./action";
@@ -25,6 +26,7 @@ function MobileNav({ className }: { className?: string }) {
           <Menu />
         </DrawerTrigger>
         <DrawerContent className="h-full">
+          <DrawerTitle className="hidden">Navigation Menu</DrawerTitle>
           <div className="grid gap-3 p-4">
             {LINKS.map((link) => (
               <Link
