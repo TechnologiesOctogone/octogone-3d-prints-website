@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { IMAGES } from "@/data/hero";
 import { Action } from "../layout/action";
 
-export function PrinterStatusBadge() {
+function PrinterStatusBadge() {
   return (
     <Badge className="mb-6" variant="secondary">
       <span className="relative mr-1 size-2 rounded-full bg-emerald-400 before:absolute before:inset-0 before:animate-ping before:rounded-full before:bg-emerald-400" />
@@ -15,7 +15,7 @@ export function PrinterStatusBadge() {
   );
 }
 
-export function HeroContent() {
+function HeroContent() {
   return (
     <div className="flex flex-col items-start">
       <PrinterStatusBadge />
@@ -41,7 +41,7 @@ export function HeroContent() {
   );
 }
 
-export function HeroVisual() {
+function HeroVisual() {
   const [image, setImage] = useState<string | null>(null);
   useEffect(
     () =>

@@ -49,7 +49,7 @@ function MobileNav({ className }: { className?: string }) {
   );
 }
 
-export function DesktopNav({
+function DesktopNav({
   className,
   active,
 }: {

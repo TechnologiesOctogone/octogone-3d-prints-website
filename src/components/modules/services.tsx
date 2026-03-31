@@ -8,7 +8,7 @@ import {
 import { SERVICES } from "@/data/services";
 import type { Service } from "@/types/landing";
 
-export function ServiceItem({ icon, title, desc }: Service) {
+function ServiceItem({ icon, title, desc }: Service) {
   return (
     <Item variant="outline">
       <ItemMedia>{icon}</ItemMedia>
@@ -20,7 +20,7 @@ export function ServiceItem({ icon, title, desc }: Service) {
   );
 }
 
-export function ServiceCategory({
+function ServiceCategory({
   title,
   items,
 }: {

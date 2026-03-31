@@ -20,7 +20,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 
-export function ProjectGallery({
+function ProjectGallery({
   pictures,
   slug,
 }: {
@@ -54,7 +54,7 @@ export function ProjectGallery({
   );
 }
 
-export function ProjectItem({ project }: { project: Project }) {
+function ProjectItem({ project }: { project: Project }) {
   return (
     <Dialog>
       <DialogTrigger className="block w-full text-left">
