@@ -1,6 +1,8 @@
 "use client";
 
+import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { useRef } from "react";
 import { PROJECTS } from "@/data/projects";
 import type { Project } from "@/types/landing";
 import { Button } from "../ui/button";
@@ -98,9 +100,14 @@ function ProjectItem({ project }: { project: Project }) {
 }
 
 export function ProjectsSection() {
+  const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+
   return (
-    <section className="w-full px-4 py-16 md:px-6 md:py-24" id="projects">
-      <Carousel className="mx-auto w-full max-w-6xl">
+    <section
+      className="bg-secondary/50 w-full px-4 py-16 md:px-6 md:py-24"
+      id="projects"
+    >
+      <Carousel className="mx-auto w-full max-w-6xl" plugins={[plugin.current]}>
         <CarouselContent className="-ml-4">
           {PROJECTS.map((p) => (
             <CarouselItem

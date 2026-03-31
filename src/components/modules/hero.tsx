@@ -22,7 +22,7 @@ function HeroContent() {
 
       <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:mb-6 lg:text-6xl">
         Ouvrez la porte des personnalisations{" "}
-        <span className="bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
           infinies
         </span>
         .
