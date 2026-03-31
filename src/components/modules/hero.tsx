@@ -20,7 +20,7 @@ function HeroContent() {
     <div className="flex flex-col items-start">
       <PrinterStatusBadge />
 
-      <h1 className="mb-4 text-4xl font-bold tracking-tighter md:text-5xl lg:mb-6 lg:text-6xl">
+      <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:mb-6 lg:text-6xl">
         Ouvrez la porte des personnalisations{" "}
         <span className="bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">
           infinies
