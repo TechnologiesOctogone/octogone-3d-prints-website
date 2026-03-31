@@ -29,7 +29,7 @@ function MobileNav({ className }: { className?: string }) {
             {LINKS.map((link) => (
               <Link
                 key={link.id}
-                href={link.id}
+                href={`#${link.id}`}
                 className={buttonVariants({ variant: "secondary", size: "lg" })}
               >
                 {link.label}
