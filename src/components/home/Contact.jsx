@@ -13,8 +13,8 @@ import { useEffect, useRef } from "react";
 /**
  * Hooks
  */
-import useOnScreen from "../hooks/on_screen";
-import useNavbar from "../hooks/use_navbar";
+import useOnScreen from "../../hooks/on_screen";
+import useNavbar from "../../hooks/use_navbar";
 
 /**
  * Utils

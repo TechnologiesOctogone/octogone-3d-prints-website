@@ -14,11 +14,12 @@ import { useState } from "react"
  * Components
  */
 import Navbar from "./Navbar"
+import Logo from "./Logo"
 
 /**
  * Utils
  */
-import i18n from "../utils/i18n";
+import i18n from "../../utils/i18n";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
@@ -51,17 +52,7 @@ const Header = () => {
             md:grid md:grid-cols-[1fr,3fr,2fr]"
         >
             <h1>
-                <a
-                    href="#home"
-                    className="logo"
-                >
-                    <img 
-                        src="images/octogone-logo-full-white.svg"
-                        alt="Octogone 3D Prints Logo"
-                        width={140}
-                        height={140}
-                    />
-                </a>
+                <Logo href="#home" />
             </h1>
 
             <button className="md:hidden btn btn-outline" type="submit" onClick={switchLaguage}>{langSwitch}</button>
@@ -87,7 +78,7 @@ const Header = () => {
                 <button className="btn btn-outline" type="submit" onClick={switchLaguage}>{langSwitch}</button>
 
                 <a
-                    href="#contact"
+                    href="/request"
                     className="btn btn-secondary md:justify-self-end"
                 >
                     {t("headerButton")}

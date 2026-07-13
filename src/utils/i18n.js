@@ -102,7 +102,10 @@ const resources = {
             contactInfo : 'Contact us at: <1 href="mailto:info@octogone3dprints.com" className="text-zinc-400 hover:text-zinc-50">info@octogone3dprints.com</1>  <br />or click on the button below: ',
             contactButton : "Contact us",
 
-        
+            requestPageTitle : "Print Request",
+            backButton : "Back",
+
+
             footerSlogan: "Start an amazing creative journey!",
             footerSitemapHeader: "Sitemap", // Sitemap details is the same as nav
             footerSocialHeader: "Socials", // Socials details doesn't need to be translated
@@ -194,6 +197,9 @@ const resources = {
             contactSectionDescription : "Contactez-nous dès aujourd'hui pour discuter de vos besoins et commencer à collaborer sur quelque chose d'extraordinaire !",
             contactInfo : 'Contactez nous à : <1 href="mailto:info@octogone3dprints.com" className="text-zinc-400 hover:text-zinc-50">info@octogone3dprints.com</1>  <br />Ou cliquez sur le bouton ci-dessous : ',
             contactButton : "Contactez nous",
+
+            requestPageTitle : "Demande d'impression",
+            backButton : "Retour",
 
 
             footerSlogan: "Commencez un incroyable voyage créatif !",

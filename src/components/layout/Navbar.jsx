@@ -13,7 +13,7 @@ import {useRef, useEffect, useState} from "react"
 /**
  * Hooks
  */
-import useNavbar from "../hooks/use_navbar";
+import useNavbar from "../../hooks/use_navbar";
 
 /**
  * Utils

@@ -14,13 +14,13 @@ import { useState, useEffect, useRef } from "react";
 /**
  * Components
  */
-import { ButtonPrimary, ButtonOutline } from "./Button";
+import { ButtonPrimary, ButtonOutline } from "../ui/Button";
 
 /**
  * Hooks
  */
-import useOnScreen from "../hooks/on_screen";
-import useNavbar from "../hooks/use_navbar";
+import useOnScreen from "../../hooks/on_screen";
+import useNavbar from "../../hooks/use_navbar";
 
 /**
  * Utils
@@ -88,7 +88,7 @@ const Hero = () => {
                         <ButtonPrimary
                             label="heroMainButton"
                             icon="keyboard_double_arrow_right"
-                            href="#contact"
+                            href="/request"
                             classes=""
                         />
 

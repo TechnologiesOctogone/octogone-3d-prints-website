@@ -129,8 +129,12 @@ body {
     @apply text-[18px] 
 }
 
-.btn:has( .material-symbols-rounded) {
+.btn:has(> .material-symbols-rounded:last-child) {
     @apply pr-3
+}
+
+.btn:has(> .material-symbols-rounded:first-child) {
+    @apply pl-3
 }
 
 .btn-primary {

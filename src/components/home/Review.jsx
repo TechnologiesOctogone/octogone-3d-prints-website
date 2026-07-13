@@ -13,13 +13,13 @@ import { useEffect, useRef } from "react";
 /**
  * Components
  */
-import ReviewCard from "./ReviewCard";
+import ReviewCard from "./cards/ReviewCard";
 
 /**
  * Hooks
  */
-import useOnScreen from "../hooks/on_screen";
-import useNavbar from "../hooks/use_navbar";
+import useOnScreen from "../../hooks/on_screen";
+import useNavbar from "../../hooks/use_navbar";
 
 const reviews = [
     {
