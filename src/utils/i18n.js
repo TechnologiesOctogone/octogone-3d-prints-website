@@ -102,8 +102,27 @@ const resources = {
             contactInfo : 'Contact us at: <1 href="mailto:info@octogone3dprints.com" className="text-zinc-400 hover:text-zinc-50">info@octogone3dprints.com</1>  <br />or click on the button below: ',
             contactButton : "Contact us",
 
-            requestPageTitle : "Print Request",
+            requestPageTitle : "Get an Estimate",
+            requestPageDescription : "Upload your 3D file and configure your options to request an estimate",
             backButton : "Back",
+
+            dropzoneLabel : "Drop your 3D file here",
+            dropzoneFormats : 'Supported formats: STL, STEP, OBJ, 3MF, <1>3D Design Guidelines</1>',
+            dropzoneSelectButton : "Select a file",
+            dropzoneChangeFile : "Change file",
+            dropzoneInvalidFormat : "Unsupported file format",
+
+            fileSectionTitle : "3D Files",
+            dropzoneCancelUpload : "Cancel",
+            dropzoneQuantity : "Quantity",
+            dropzoneMaterial : "Material",
+            dropzoneDescription : "Description",
+            dropzoneDescriptionPlaceholder : "What is the object's purpose?",
+            dropzoneColor : "Color",
+            dropzoneDuplicate : "Duplicate",
+            dropzoneDelete : "Delete",
+            dropzoneExpand : "Expand",
+            dropzoneCollapse : "Collapse",
 
 
             footerSlogan: "Start an amazing creative journey!",
@@ -198,8 +217,27 @@ const resources = {
             contactInfo : 'Contactez nous à : <1 href="mailto:info@octogone3dprints.com" className="text-zinc-400 hover:text-zinc-50">info@octogone3dprints.com</1>  <br />Ou cliquez sur le bouton ci-dessous : ',
             contactButton : "Contactez nous",
 
-            requestPageTitle : "Demande d'impression",
+            requestPageTitle : "Obtenir une estimation",
+            requestPageDescription : "Télécharger votre fichier 3D et configurez vos options pour demander une estimation",
             backButton : "Retour",
+
+            dropzoneLabel : "Déposer votre fichier 3D ici",
+            dropzoneFormats : 'Formats supportés : STL, STEP, OBJ, 3MF, <1>Règles de design 3D</1>',
+            dropzoneSelectButton : "Sélectionner un fichier",
+            dropzoneChangeFile : "Changer de fichier",
+            dropzoneInvalidFormat : "Format de fichier non supporté",
+
+            fileSectionTitle : "Fichiers 3D",
+            dropzoneCancelUpload : "Annuler",
+            dropzoneQuantity : "Quantité",
+            dropzoneMaterial : "Matériau",
+            dropzoneDescription : "Description",
+            dropzoneDescriptionPlaceholder : "Quel est l'utilité de l'objet ?",
+            dropzoneColor : "Couleur",
+            dropzoneDuplicate : "Dupliquer",
+            dropzoneDelete : "Supprimer",
+            dropzoneExpand : "Développer",
+            dropzoneCollapse : "Réduire",
 
 
             footerSlogan: "Commencez un incroyable voyage créatif !",

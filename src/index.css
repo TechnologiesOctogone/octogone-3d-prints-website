@@ -147,7 +147,7 @@ body {
 
 /* Text Field */
 .label{
-    @apply block text-zinc-200 text-sm font-normal mb-2
+    @apply block text-zinc-200 text-sm font-semibold mb-2
 }
 
 .text-field {
@@ -156,6 +156,32 @@ body {
 
 .text-field::placeholder {
     @apply text-zinc-400
+}
+
+/* File Item Edit Grid */
+.file-item-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    grid-template-areas:
+        "filename filename"
+        "image fields"
+        "colorheader colorheader"
+        "colorswatches colorswatches"
+        "description description"
+        "actions actions";
+}
+
+@media (min-width: 768px) {
+    .file-item-grid {
+        grid-template-columns: 320px 1fr 1fr;
+        column-gap: 1.5rem;
+        row-gap: 1.5rem;
+        grid-template-areas:
+            "image filename colorheader"
+            "image fields colorswatches"
+            "actions description description";
+    }
 }
 
 

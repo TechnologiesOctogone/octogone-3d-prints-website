@@ -15,6 +15,7 @@ import { useState } from "react";
  */
 import Logo from "../components/layout/Logo";
 import Footer from "../components/layout/Footer";
+import FileSection from "../components/request/FileSection";
 
 /**
  * Utils
@@ -61,8 +62,11 @@ const RequestPage = () => {
                 </div>
             </header>
 
-            <main className="container pt-32 text-center">
-                <h1 className="text-sky-400 text-2xl">{t("requestPageTitle")}</h1>
+            <main className="container pt-32">
+                <h1 className="headline-2">{t("requestPageTitle")}</h1>
+                <p className="text-zinc-400 mt-3 mb-10">{t("requestPageDescription")}</p>
+
+                <FileSection />
             </main>
 
             <Footer homeHref="/" />
