@@ -5,6 +5,8 @@
  * sans l'autorisation écrite préalable de Technologies Octogone est strictement interdite.
 */
 
+import { isValidPhoneNumber, parsePhoneNumberFromString, getCountryCallingCode } from "libphonenumber-js/min";
+
 export const FILENAME_TRUNCATE_LENGTH = 20;
 
 export const truncateFilename = (name, maxLength = FILENAME_TRUNCATE_LENGTH) =>
@@ -46,3 +48,52 @@ export const COLORS = [
 
 export const DEFAULT_COLOR_ID = COLORS[0].id;
 export const DEFAULT_MATERIAL = MATERIALS[0];
+
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export const DEFAULT_PHONE_COUNTRY = "CA";
+
+export const EMPTY_CONTACT_FIELDS = {
+    lastName: "",
+    firstName: "",
+    company: "",
+    email: "",
+    phone: "+" + getCountryCallingCode(DEFAULT_PHONE_COUNTRY),
+};
+
+export const validateContactFields = (fields) => ({
+    lastName: !fields.lastName.trim(),
+    firstName: !fields.firstName.trim(),
+    email: !EMAIL_REGEX.test(fields.email.trim()),
+    phone: !fields.phone || !isValidPhoneNumber(fields.phone),
+});
+
+export const formatPhoneNumber = (phone) => {
+    if (!phone) return "";
+    return parsePhoneNumberFromString(phone)?.formatInternational() ?? phone;
+};
+
+const MAILTO_RECIPIENT = "info@octogone3dprints.com";
+
+export const buildMailtoUrl = (fields, files = []) => {
+    const subject = `Demande d'impression 3D - ${fields.firstName} ${fields.lastName}`;
+
+    const lines = [
+        `Nom: ${fields.firstName} ${fields.lastName}`,
+        fields.company && `Entreprise: ${fields.company}`,
+        `Email: ${fields.email}`,
+        `Téléphone: ${formatPhoneNumber(fields.phone)}`,
+    ].filter(Boolean);
+
+    if (files.length > 0) {
+        lines.push("", "Fichiers :");
+        files.forEach((file) => {
+            const color = COLORS.find((colorOption) => colorOption.id === file.colorId)?.name ?? "";
+            lines.push(`- ${file.name} (x${file.quantity}, ${file.material}, ${color})`);
+        });
+    }
+
+    const body = lines.join("\n");
+
+    return `mailto:${MAILTO_RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};

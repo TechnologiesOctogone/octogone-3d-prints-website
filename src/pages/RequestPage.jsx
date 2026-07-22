@@ -16,28 +16,54 @@ import { useState } from "react";
 import Logo from "../components/layout/Logo";
 import Footer from "../components/layout/Footer";
 import FileSection from "../components/request/FileSection";
+import ContactSection from "../components/request/ContactSection";
 
 /**
  * Utils
  */
 import i18n from "../utils/i18n";
 import { useTranslation } from "react-i18next";
+import { EMPTY_CONTACT_FIELDS, validateContactFields, buildMailtoUrl } from "../components/request/requestConfig";
 
 const RequestPage = () => {
 
     const { t } = useTranslation();
-    const [langSwitch, setLangSwitch] = useState("EN"); // The language is in french by default
+    const langSwitch = i18n.language === "en" ? "FR" : "EN"; // label shows the language you'd switch to
+    const [files, setFiles] = useState([]);
+    const [contactFields, setContactFields] = useState(EMPTY_CONTACT_FIELDS);
+    const [contactExpanded, setContactExpanded] = useState(true);
+    const [contactErrors, setContactErrors] = useState({});
 
     const switchLaguage = () => {
-        if (langSwitch === "EN") {
-            i18n.changeLanguage("en");
-            setLangSwitch("FR");
-        }
-        else {
-            i18n.changeLanguage("fr");
-            setLangSwitch("EN");
-        }
+        i18n.changeLanguage(i18n.language === "en" ? "fr" : "en");
     }
+
+    const handleContactFieldChange = (field, value) => {
+        setContactFields((prev) => ({ ...prev, [field]: value }));
+    };
+
+    const handleContactToggleExpand = () => {
+        if (contactExpanded) {
+            const errors = validateContactFields(contactFields);
+            if (Object.values(errors).some(Boolean)) {
+                setContactErrors(errors);
+                return;
+            }
+        }
+        setContactErrors({});
+        setContactExpanded((prev) => !prev);
+    };
+
+    const handleSubmit = () => {
+        const errors = validateContactFields(contactFields);
+        if (Object.values(errors).some(Boolean)) {
+            setContactErrors(errors);
+            setContactExpanded(true);
+            return;
+        }
+        setContactErrors({});
+        window.location.href = buildMailtoUrl(contactFields, files);
+    };
 
     return (
         <>
@@ -66,7 +92,21 @@ const RequestPage = () => {
                 <h1 className="headline-2">{t("requestPageTitle")}</h1>
                 <p className="text-zinc-400 mt-3 mb-10">{t("requestPageDescription")}</p>
 
-                <FileSection />
+                <FileSection onFilesChange={setFiles} />
+
+                <ContactSection
+                    fields={contactFields}
+                    errors={contactErrors}
+                    expanded={contactExpanded}
+                    onFieldChange={handleContactFieldChange}
+                    onToggleExpand={handleContactToggleExpand}
+                />
+
+                <div className="flex justify-end mt-12">
+                    <button type="button" className="btn btn-primary px-8" onClick={handleSubmit}>
+                        {t("requestSubmitButton")}
+                    </button>
+                </div>
             </main>
 
             <Footer homeHref="/" />

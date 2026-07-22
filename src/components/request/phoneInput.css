@@ -1,0 +1,28 @@
+.PhoneInputCountry {
+    padding: 0.75rem;
+    margin-right: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.PhoneInputCountrySelectArrow {
+    --PhoneInputCountrySelectArrow-color: #a1a1aa;
+    --PhoneInputCountrySelectArrow-opacity: 1;
+}
+
+.PhoneInputCountrySelect {
+    color-scheme: dark;
+}
+
+.PhoneInputCountrySelect option {
+    background-color: #27272a;
+    color: #fafafa;
+}
+
+.PhoneInputInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.75rem;
+    color: inherit;
+    font: inherit;
+}

@@ -124,6 +124,17 @@ const resources = {
             dropzoneExpand : "Expand",
             dropzoneCollapse : "Collapse",
 
+            requestContactTitle : "Contact",
+            requestContactLastName : "Last Name",
+            requestContactFirstName : "First Name",
+            requestContactCompany : "Company",
+            requestContactEmail : "Email Address",
+            requestContactEmailInvalid : "Invalid address",
+            requestContactPhone : "Phone",
+            requestContactExpandLabel : "Expand",
+            requestContactCollapseLabel : "Collapse",
+            requestSubmitButton : "Send",
+
 
             footerSlogan: "Start an amazing creative journey!",
             footerSitemapHeader: "Sitemap", // Sitemap details is the same as nav
@@ -239,6 +250,17 @@ const resources = {
             dropzoneExpand : "Développer",
             dropzoneCollapse : "Réduire",
 
+            requestContactTitle : "Contact",
+            requestContactLastName : "Nom de Famille",
+            requestContactFirstName : "Prénom",
+            requestContactCompany : "Entreprise",
+            requestContactEmail : "Adresse mail",
+            requestContactEmailInvalid : "Adresse non valide",
+            requestContactPhone : "Téléphone",
+            requestContactExpandLabel : "Développer",
+            requestContactCollapseLabel : "Réduire",
+            requestSubmitButton : "Envoyer",
+
 
             footerSlogan: "Commencez un incroyable voyage créatif !",
             footerSitemapHeader: "Plan du site", // Sitemap details is the same as nav
@@ -248,10 +270,13 @@ const resources = {
     },
 };
 
+const LANGUAGE_STORAGE_KEY = "language";
+const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+
 i18n.use(initReactI18next) // passes i18n down to react-i18next
     .init({
         resources,
-        lng: "fr", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+        lng: storedLanguage || "fr", // use the language the user last selected, French by default
         // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
         // if you're using a language detector, do not define the lng option
 
@@ -259,5 +284,10 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
             escapeValue: false, // react already safes from xss
         },
     });
+
+// Remember the selected language so it survives page navigations/reloads
+i18n.on("languageChanged", (lng) => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, lng);
+});
 
 export default i18n;

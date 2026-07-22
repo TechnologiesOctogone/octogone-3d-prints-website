@@ -25,18 +25,11 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
 
     const [navOpen, setNavOpen] = useState(false);
-    const [langSwitch, setLangSwitch] = useState("EN"); // The language is in french by default
     const {t} = useTranslation();
+    const langSwitch = i18n.language === "en" ? "FR" : "EN"; // label shows the language you'd switch to
 
     const switchLaguage = () => {
-        if(langSwitch === "EN") {
-            i18n.changeLanguage("en");
-            setLangSwitch("FR");
-        }
-        else {
-            i18n.changeLanguage("fr");
-            setLangSwitch("EN");
-        }
+        i18n.changeLanguage(i18n.language === "en" ? "fr" : "en");
     }
 
   return (

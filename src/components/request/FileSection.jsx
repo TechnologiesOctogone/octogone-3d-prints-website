@@ -25,7 +25,7 @@ import { DEFAULT_COLOR_ID, DEFAULT_MATERIAL } from "./requestConfig";
 
 const UPLOAD_TICK_MS = 300;
 
-const FileSection = () => {
+const FileSection = ({ onFilesChange }) => {
 
     const { t } = useTranslation();
     const [files, setFiles] = useState([]);
@@ -35,6 +35,10 @@ const FileSection = () => {
     useEffect(() => () => {
         Object.values(intervalsRef.current).forEach(clearInterval);
     }, []);
+
+    useEffect(() => {
+        onFilesChange?.(files);
+    }, [files, onFilesChange]);
 
     const updateFile = (id, patch) => {
         setFiles((prev) => prev.map((file) => (file.id === id ? { ...file, ...patch } : file)));
