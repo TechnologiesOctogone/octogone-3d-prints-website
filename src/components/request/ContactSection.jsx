@@ -11,6 +11,8 @@
 import PhoneInput from "react-phone-number-input/min";
 import "react-phone-number-input/style.css";
 import "./phoneInput.css";
+import phoneLabelsEn from "react-phone-number-input/locale/en.json";
+import phoneLabelsFr from "react-phone-number-input/locale/fr.json";
 
 /**
  * Components
@@ -22,21 +24,12 @@ import Container from "../ui/Container";
  */
 import { useTranslation } from "react-i18next";
 import { DEFAULT_PHONE_COUNTRY, formatPhoneNumber } from "./requestConfig";
+import { FieldLabel, fieldClass } from "./FormField";
 
-const FieldLabel = ({ children, required, error }) => (
-    <div className="flex items-center justify-between mb-2">
-        <label className="text-zinc-200 text-sm font-semibold">
-            {children}
-            {required && <span className="text-red-500" aria-hidden="true"> *</span>}
-        </label>
-        {error && <span className="text-red-400 text-xs font-medium">{error}</span>}
-    </div>
-);
-
-const fieldClass = (hasError) => "text-field" + (hasError ? " !ring-red-500 !bg-red-500/10" : "");
+const PHONE_LABELS = { en: phoneLabelsEn, fr: phoneLabelsFr };
 
 const ContactSection = ({ fields, errors, expanded, onFieldChange, onToggleExpand }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const summaryNameLine = [`${fields.firstName} ${fields.lastName}`.trim(), fields.company].filter(Boolean).join(", ");
     const summaryContactLine = [fields.email, formatPhoneNumber(fields.phone)].filter(Boolean).join(" , ");
@@ -104,6 +97,7 @@ const ContactSection = ({ fields, errors, expanded, onFieldChange, onToggleExpan
                                 <PhoneInput
                                     international
                                     defaultCountry={DEFAULT_PHONE_COUNTRY}
+                                    labels={PHONE_LABELS[i18n.language] || phoneLabelsEn}
                                     autoComplete="tel"
                                     value={fields.phone}
                                     onChange={(value) => onFieldChange("phone", value || "")}

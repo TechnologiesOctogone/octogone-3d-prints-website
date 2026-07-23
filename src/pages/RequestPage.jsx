@@ -17,13 +17,20 @@ import Logo from "../components/layout/Logo";
 import Footer from "../components/layout/Footer";
 import FileSection from "../components/request/FileSection";
 import ContactSection from "../components/request/ContactSection";
+import AddressSection from "../components/request/AddressSection";
 
 /**
  * Utils
  */
 import i18n from "../utils/i18n";
 import { useTranslation } from "react-i18next";
-import { EMPTY_CONTACT_FIELDS, validateContactFields, buildMailtoUrl } from "../components/request/requestConfig";
+import {
+    EMPTY_CONTACT_FIELDS,
+    validateContactFields,
+    EMPTY_ADDRESS_FIELDS,
+    validateAddressFields,
+    buildMailtoUrl,
+} from "../components/request/requestConfig";
 
 const RequestPage = () => {
 
@@ -33,6 +40,9 @@ const RequestPage = () => {
     const [contactFields, setContactFields] = useState(EMPTY_CONTACT_FIELDS);
     const [contactExpanded, setContactExpanded] = useState(true);
     const [contactErrors, setContactErrors] = useState({});
+    const [addressFields, setAddressFields] = useState(EMPTY_ADDRESS_FIELDS);
+    const [addressExpanded, setAddressExpanded] = useState(true);
+    const [addressErrors, setAddressErrors] = useState({});
 
     const switchLaguage = () => {
         i18n.changeLanguage(i18n.language === "en" ? "fr" : "en");
@@ -54,15 +64,37 @@ const RequestPage = () => {
         setContactExpanded((prev) => !prev);
     };
 
+    const handleAddressFieldChange = (field, value) => {
+        setAddressFields((prev) => ({ ...prev, [field]: value }));
+    };
+
+    const handleAddressToggleExpand = () => {
+        if (addressExpanded) {
+            const errors = validateAddressFields(addressFields);
+            if (Object.values(errors).some(Boolean)) {
+                setAddressErrors(errors);
+                return;
+            }
+        }
+        setAddressErrors({});
+        setAddressExpanded((prev) => !prev);
+    };
+
     const handleSubmit = () => {
-        const errors = validateContactFields(contactFields);
-        if (Object.values(errors).some(Boolean)) {
-            setContactErrors(errors);
-            setContactExpanded(true);
+        const contactValidation = validateContactFields(contactFields);
+        const addressValidation = validateAddressFields(addressFields);
+        const contactInvalid = Object.values(contactValidation).some(Boolean);
+        const addressInvalid = Object.values(addressValidation).some(Boolean);
+
+        if (contactInvalid || addressInvalid) {
+            if (contactInvalid) { setContactErrors(contactValidation); setContactExpanded(true); }
+            if (addressInvalid) { setAddressErrors(addressValidation); setAddressExpanded(true); }
             return;
         }
+
         setContactErrors({});
-        window.location.href = buildMailtoUrl(contactFields, files);
+        setAddressErrors({});
+        window.location.href = buildMailtoUrl(contactFields, addressFields, files);
     };
 
     return (
@@ -100,6 +132,14 @@ const RequestPage = () => {
                     expanded={contactExpanded}
                     onFieldChange={handleContactFieldChange}
                     onToggleExpand={handleContactToggleExpand}
+                />
+
+                <AddressSection
+                    fields={addressFields}
+                    errors={addressErrors}
+                    expanded={addressExpanded}
+                    onFieldChange={handleAddressFieldChange}
+                    onToggleExpand={handleAddressToggleExpand}
                 />
 
                 <div className="flex justify-end mt-12">

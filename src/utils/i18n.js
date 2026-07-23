@@ -135,6 +135,16 @@ const resources = {
             requestContactCollapseLabel : "Collapse",
             requestSubmitButton : "Send",
 
+            requestAddressTitle : "Address",
+            requestAddressCountry : "Country",
+            requestAddressLine1 : "Address",
+            requestAddressLine2 : "Apartment, suite, etc. (optional)",
+            requestAddressCity : "City",
+            requestAddressProvince : "Province / State",
+            requestAddressPostalCode : "Postal code",
+            requestAddressAttribution : "Addresses via OpenStreetMap",
+            requestAddressSelectPlaceholder : "Select...",
+
 
             footerSlogan: "Start an amazing creative journey!",
             footerSitemapHeader: "Sitemap", // Sitemap details is the same as nav
@@ -260,6 +270,16 @@ const resources = {
             requestContactExpandLabel : "Développer",
             requestContactCollapseLabel : "Réduire",
             requestSubmitButton : "Envoyer",
+
+            requestAddressTitle : "Adresse",
+            requestAddressCountry : "Pays",
+            requestAddressLine1 : "Adresse",
+            requestAddressLine2 : "Appartement, bureau, etc. (optionnel)",
+            requestAddressCity : "Ville",
+            requestAddressProvince : "Province / État",
+            requestAddressPostalCode : "Code postal",
+            requestAddressAttribution : "Adresses via OpenStreetMap",
+            requestAddressSelectPlaceholder : "Sélectionner...",
 
 
             footerSlogan: "Commencez un incroyable voyage créatif !",
